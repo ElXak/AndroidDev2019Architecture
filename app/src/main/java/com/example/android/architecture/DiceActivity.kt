@@ -69,22 +69,34 @@ class DiceActivity : AppCompatActivity() {
         }
     }
 
-    override fun onSaveInstanceState(outState: Bundle?) {
-        outState?.putBoolean(CONFIG_CHANGE, true)
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putBoolean(CONFIG_CHANGE, true)
         super.onSaveInstanceState(outState)
     }
+
+//    override fun onSaveInstanceState(outState: Bundle?) {
+//        outState?.putBoolean(CONFIG_CHANGE, true)
+//        super.onSaveInstanceState(outState)
+//    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_dice, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item?.itemId) {
             R.id.action_share -> shareResult()
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+//    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+//        return when (item?.itemId) {
+//            R.id.action_share -> shareResult()
+//            else -> super.onOptionsItemSelected(item)
+//        }
+//    }
 
     private fun shareResult(): Boolean {
 
